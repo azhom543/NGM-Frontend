@@ -1,1 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-dark-red: #1e0201;
+  --color-dark-red-2: #4b0b02;
+  --color-brown: #935227;
+  --color-dark-brown: #431903;
+  --color-cream: #ebdabe;
+  --color-bright-red: #870100;
+  --color-teal: #2f6663;
+  --color-olive: #4d5935;
+  --color-gold: #e4a44a;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, var(--color-dark-red) 0%, var(--color-dark-red) 100%);
+  color: var(--color-cream);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(135, 1, 0, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-family: 'quickSand';
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #f5b85a 100%);
+  color: var(--color-dark-red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(228, 164, 74, 0.5), 0 0 15px rgba(228, 164, 74, 0.3);
+  text-shadow: none;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-gold);
+  color: var(--color-gold);
+  box-shadow: 0 0 10px rgba(228, 164, 74, 0.2);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #f5b85a 100%);
+  color: var(--color-dark-red);
+  box-shadow: 0 6px 20px rgba(228, 164, 74, 0.5), 0 0 15px rgba(228, 164, 74, 0.3);
+  border-color: var(--color-gold);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'lora';
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+@font-face {
+  font-family: 'quickSand';
+  src: url('assets/fonts/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'quickSand';
+  src: url('assets/fonts/Quicksand-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'quickSand';
+  src: url('assets/fonts/Quicksand-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 50px 0;
+  }
+}

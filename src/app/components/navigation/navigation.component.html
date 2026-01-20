@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="container">
+    <a routerLink="/" fragment="home" class="logo" (click)="onNavClick('home')">
+      <img [src]="logoPath" alt="Not Grandmas Logo" />
+      <!--<span class="logo-text">{{ projectName }}</span>-->
+    </a>
+    <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" [attr.aria-label]="'Toggle menu'">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li><a routerLink="/" fragment="home" (click)="onNavClick('home')">Home</a></li>
+      <li><a routerLink="/projects" (click)="onNavClick(null)">Projects</a></li>
+      <li><a routerLink="/" fragment="services" (click)="onNavClick('services')">Services</a></li>
+      <li><a routerLink="/" fragment="about" (click)="onNavClick('about')">About</a></li>
+      <li><a routerLink="/contact" (click)="onNavClick(null)">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+

@@ -1,0 +1,62 @@
+<div *ngIf="project" class="project-detail">
+  <div class="container">
+    <a routerLink="/" class="back-link">← Back to Projects</a>
+    
+    <div class="project-header">
+      <span class="project-category">{{ project.category }}</span>
+      <h1>{{ project.title }}</h1>
+      <div class="project-meta">
+        <span *ngIf="project.client">Client: {{ project.client }}</span>
+        <span>Year: {{ project.year }}</span>
+      </div>
+    </div>
+
+    <div class="project-description">
+      <p>{{ project.fullDescription }}</p>
+    </div>
+
+    <!-- Image Gallery -->
+    <div *ngIf="project.images && project.images.length > 0" class="image-gallery">
+      <h2>Project Images</h2>
+      <div class="gallery-main">
+        <button class="gallery-nav prev" (click)="prevImage()" *ngIf="project.images.length > 1">‹</button>
+        <img [src]="project.images[currentImageIndex]" [alt]="project.title + ' - Image ' + (currentImageIndex + 1)" />
+        <button class="gallery-nav next" (click)="nextImage()" *ngIf="project.images.length > 1">›</button>
+      </div>
+      <div class="gallery-thumbnails" *ngIf="project.images.length > 1">
+        <img 
+          *ngFor="let image of project.images; let i = index" 
+          [src]="image" 
+          [alt]="'Thumbnail ' + (i + 1)"
+          [class.active]="i === currentImageIndex"
+          (click)="goToImage(i)"
+        />
+      </div>
+    </div>
+
+    <!-- Video Gallery -->
+    <div *ngIf="project.videos && project.videos.length > 0" class="video-gallery">
+      <h2>Project Videos</h2>
+      <div class="videos-grid">
+        <div *ngFor="let video of project.videos" class="video-wrapper">
+          <iframe 
+            [src]="video | safeUrl" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-actions">
+      <a routerLink="/" class="btn">View All Projects</a>
+      <a routerLink="/contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!project" class="loading">
+  <p>Loading project...</p>
+</div>
+
