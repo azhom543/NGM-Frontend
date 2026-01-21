@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -22,10 +21,9 @@ export class ContactComponent {
   submitting = false;
   errorMessage = '';
 
-  constructor(private contactService: ContactService) {}
-
   onSubmit() {
     this.submitted = true;
+    setTimeout(() => this.submitted = false, 5000);
   }
 }
 

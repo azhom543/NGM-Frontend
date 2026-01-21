@@ -26,6 +26,14 @@
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field">
+          <!-- REQUIRED -->
+          <input type="hidden" name="form-name" value="contact" />
+
+          <!-- Honeypot -->
+          <p hidden>
+            <input name="bot-field" />
+          </p>
+          
           <div class="form-group">
             <label for="name">Name *</label>
             <input 
@@ -37,7 +45,7 @@
               placeholder="Your name"
             />
           </div>
-
+          
           <div class="form-group">
             <label for="email">Email *</label>
             <input 
