@@ -22,8 +22,23 @@ export class ContactComponent {
   errorMessage = '';
 
   onSubmit() {
+    const body = new URLSearchParams();
+  body.set('form-name', 'contact');
+  body.set('name', this.contactForm.name);
+  body.set('email', this.contactForm.email);
+  body.set('subject', this.contactForm.subject);
+  body.set('message', this.contactForm.message);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body.toString()
+  })
+  .then(() => {
     this.submitted = true;
-    setTimeout(() => this.submitted = false, 5000);
+  })
+  .catch(() => {
+    this.errorMessage = 'Submission failed. Please try again.';
+  });
   }
 }
-
